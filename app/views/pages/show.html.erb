@@ -1,4 +1,5 @@
 
+
 <div id="next_prev">
   <% if @page.prev_slug.present? %> 
     <div class="page_previous">
@@ -62,11 +63,11 @@
   <%= render :partial => "links"  %>
 <% end %>
 
-<% if  current_user && current_user.admin -%>
-  <%= link_to :Permalink, @page.slug.name %>
+<% if  current_user.present? && current_user.admin -%>
+  <%= link_to :Permalink, "/show/" + @page.slug %>
   <%= link_to :Edit, :action => "edit", :id => @page.id %>
   <%= link_to :Delete, :action => "destroy", :id => @page.id %>
-  <%= link_to :Logout, logout_path %>
+  <%= link_to "Sign Out", sign_out_path %>
 <% end %>
 
 </div> <!-- page_central -->

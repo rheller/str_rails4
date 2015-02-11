@@ -2,11 +2,10 @@ Rails.application.routes.draw do
 
 #  The following two routes are alternates that send the user home  
 #  get 'home', controller: 'videos', action: 'index'
-  get 'home', to: 'pages#1'   #tk 
+  get 'home', to: 'pages/1'
 
   root :controller => 'pages',
              :action     => 'show',
-           #tk  :id       => 'love-first'
              :id       => 1
 
 =begin
@@ -22,14 +21,13 @@ tk
   get 'sign_in', to: 'sessions#new'
   get 'sign_out', to: 'sessions#destroy'
 
-  resources :pages, only: [:show]
+  resources :pages
   resources :explanations, only: [:index]
   resources :users, only: [:new, :create] do
     # collection do
     #   post 'start_session', to: 'users#start_session'
     # end
   end
-
   resources :sessions, only: [:new, :create]
 
 
