@@ -1,74 +1,76 @@
+<div id="content">
 
 
-<div id="next_prev">
-  <% if @page.prev_slug.present? %> 
-    <div class="page_previous">
-		<%= link_to 'Previous Page', :controller => :pages, :action => :show, :id => @page.prev_slug %>
-		</div>
-	<% end %>
-	
-		
+  <div id="next_prev">
+    <% if @page.prev_slug.present? %> 
+      <div class="page_previous">
+  		<%= link_to 'Previous Page', :controller => :pages, :action => :show, :id => @page.prev_slug %>
+  		</div>
+  	<% end %>
+  	
+  		
+    <% if @page.next_slug.present? %> 
+      <div class="page_next">
+      <%= link_to 'Next Page', :controller => :pages, :action => :show, :id => @page.next_slug %>
+  		</div>
+  	<% end %>
+  	
+      <div id="page_headline">
+  		<%= @page.title.html_safe %>
+      </div>
+
+  	
+  </div>
+
+  <div id="page_structure">
+  <div id="page_left">
+  <%= @page.part1.html_safe %>
+
+
+
   <% if @page.next_slug.present? %> 
-    <div class="page_next">
-    <%= link_to 'Next Page', :controller => :pages, :action => :show, :id => @page.next_slug %>
-		</div>
-	<% end %>
-	
-    <div id="page_headline">
-		<%= @page.title %>
-    </div>
+      <div class="page_next">
+      <%= link_to 'Next', :controller => :pages, :action => :show, :id => @page.next_slug %>
+  		</div>
+  	<% end %>
 
-	
-</div>
-
-<div id="page_structure">
-<div id="page_left">
-<%= @page.part1 %>
+  </div> 
 
 
 
-<% if @page.next_slug.present? %> 
-    <div class="page_next">
-    <%= link_to 'Next', :controller => :pages, :action => :show, :id => @page.next_slug %>
-		</div>
-	<% end %>
-
-</div> 
-
-
-
-<% if @page.embedded.length > 0 %>
-<div id="page_video_headline">
-</div>
-<div id="page_vid">
-  <%= @page.extra %>
-	<br />
-  <%= @page.embedded %>
-</div>
-<% end %>
+  <% if @page.embedded.length > 0 %>
+  <div id="page_video_headline">
+  </div>
+  <div id="page_vid">
+    <%= @page.extra.html_safe %>
+  	<br />
+    <%= @page.embedded.html_safe %>
+  </div>
+  <% end %>
 
 
 
-</div> <!-- page_structure -->
+  </div> <!-- page_structure -->
 
 
-<div id="page_central">
-<%= @page.part2 %>
+  <div id="page_central">
+  <%= @page.part2.html_safe %>
 
-	
-		
-<% if @page.prev_page.present?  %>
-  <%= render :partial => "links_track2"  %>
-<% else %>
-  <%= render :partial => "links"  %>
-<% end %>
+  	
+  		
+  <% if @page.prev_page.present?  %>
+    <%= render :partial => "links_track2"  %>
+  <% else %>
+    <%= render :partial => "links"  %>
+  <% end %>
 
-<% if  current_user.present? && current_user.admin -%>
-  <%= link_to :Permalink, "/show/" + @page.slug %>
-  <%= link_to :Edit, :action => "edit", :id => @page.id %>
-  <%= link_to :Delete, :action => "destroy", :id => @page.id %>
-  <%= link_to "Sign Out", sign_out_path %>
-<% end %>
+  <% if  current_user.present? && current_user.admin -%>
+    <%= link_to :Permalink, "/show/" + @page.slug %>
+    <%= link_to :Edit, :action => "edit", :id => @page.id %>
+    <%= link_to :Delete, :action => "destroy", :id => @page.id %>
+    <%= link_to "Sign Out", sign_out_path %>
+  <% end %>
 
-</div> <!-- page_central -->
+  </div> <!-- page_central -->
 
+  </div> <!-- content -->
