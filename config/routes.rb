@@ -1,19 +1,9 @@
 Rails.application.routes.draw do
 
 
-  get 'home', controller: 'pages', action: 'show', id: 1
-
-  root :controller => 'pages',
-             :action     => 'show',
-             :id       => 1
-
-=begin
-tk
-  map.connect '/green',              :controller => 'pages',
-             :action     => 'show',
-             :id       => 'love-mindfulness-and-the-environment'
-=end
-
+  root         controller: 'pages', action: 'show', id: 'love-first'
+  get 'home',  controller: 'pages', action: 'show', id: 'love-first'
+  get 'green', controller: 'pages', action: 'show', id: 'love-mindfulness-and-the-environment'
 
 
   get 'register', to: 'users#new'
