@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-#  The following two routes are alternates that send the user home  
-#  get 'home', controller: 'videos', action: 'index'
-  get 'home', to: 'pages/1'
+
+  get 'home', controller: 'pages', action: 'show', id: 1
 
   root :controller => 'pages',
              :action     => 'show',
@@ -31,6 +30,7 @@ tk
   resources :sessions, only: [:new, :create]
 
 
+  get 'pages/show/:id', controller: 'pages', action: 'show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
