@@ -65,10 +65,12 @@
   <% end %>
 
   <% if  current_user.present? && current_user.admin -%>
+    <div>
     <%= link_to :Permalink, "/show/" + @page.slug %>
     <%= link_to :Edit, :action => "edit", :id => @page.id %>
     <%= link_to :Delete, :action => "destroy", :id => @page.id %>
     <%= link_to "Sign Out", sign_out_path %>
+    </div>
   <% end %>
 
   </div> <!-- page_central -->
