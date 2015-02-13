@@ -1,14 +1,11 @@
 <h2>Pages</h2> 
 
   <div>
-    <ul>
       <% @pages.each do |page| %>
-	 <li> 
+	     <p> 
            <%= link_to page.title, edit_page_path(page)
             %>
-        </li>
+        </p>
       <% end %>
-    </ul>
-
   </div>
 
